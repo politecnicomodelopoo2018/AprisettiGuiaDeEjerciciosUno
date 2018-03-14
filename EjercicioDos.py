@@ -18,4 +18,5 @@ class Materias(object):
         self.listaDeNotas.append(notaAIngresar)
         return True
     def getPromedio(self):
+        return sum(self.listaDeNotas) / len(self.listaDeNotas)
 

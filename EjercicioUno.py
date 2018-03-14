@@ -40,7 +40,7 @@ class Alumno(object):
             if item.nombre == nombreMateria:
                 return item.getPromedio()
 
-        return sum(self.listaDeMaterias[materia].getlistaDeNotas)/len(self.listaDeMaterias[materia].getlistaDeNotas)
+
 
     def getEdadActual(self):
         return (datetime.date.today() - self.fechaDeNacimiento)/365.25
