@@ -1,4 +1,5 @@
 import datetime
+from EjercicioDos import Materias
 from datetime import timedelta
 
 class Alumno(object):
@@ -6,7 +7,7 @@ class Alumno(object):
 
 
     def __init__(self, nombre = None, apellido = None, fechaDeNacimiento = None):
-        self.listaDeNotas = []
+        self.listaDeMaterias = []
         self.nombre = nombre
         self.apellido = apellido
         self.fechaDeNacimiento = fechaDeNacimiento
@@ -22,22 +23,24 @@ class Alumno(object):
     def setFechaDeNacimiento(self, fechaDeNacimientoIngresada):
         self.fechaDeNacimiento = fechaDeNacimientoIngresada
 
-    def setNota(self, notaAIngresar):
-        if(notaAIngresar > 10):
-            return False
-        if(notaAIngresar < 1):
-            return False
-        self.listaDeNotas.append(notaAIngresar)
-        return True
+    def setNotaMateria(self, nombreMateria, notaAIngresar):
+        for item in self.listaDeMaterias:
+            if item.nombre == nombreMateria:
+                item.setNota(notaAIngresar)
+                return True
 
-    def getMayorNota(self):
-        return max(self.listaDeNotas)
+    def getMayorNota(self, nombreMateria):
+        return max(self.listaDeMaterias[materia].getlistaDeNotas)
 
-    def getMenorNota(self):
-        return min(self.listaDeNotas)
+    def getMenorNota(self, nombreMateria):
+        return min(self.listaDeMaterias[materia].getlistaDeNotas)
 
-    def getPromedioNota(self):
-        return sum(self.listaDeNotas)/len(self.listaDeNotas)
+    def getPromedioMateria(self, nombreMateria):
+        for item in self.listaDeMaterias:
+            if item.nombre == nombreMateria:
+                return item.getPromedio()
+
+        return sum(self.listaDeMaterias[materia].getlistaDeNotas)/len(self.listaDeMaterias[materia].getlistaDeNotas)
 
     def getEdadActual(self):
         return (datetime.date.today() - self.fechaDeNacimiento)/365.25
