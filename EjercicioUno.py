@@ -23,6 +23,9 @@ class Alumno(object):
     def setFechaDeNacimiento(self, fechaDeNacimientoIngresada):
         self.fechaDeNacimiento = fechaDeNacimientoIngresada
 
+    def setMateria(self, materia):
+        self.listaDeMaterias.append(materia)
+
     def setNotaMateria(self, nombreMateria, notaAIngresar):
         for item in self.listaDeMaterias:
             if item.nombre == nombreMateria:
@@ -40,6 +43,21 @@ class Alumno(object):
             if item.nombre == nombreMateria:
                 return item.getPromedio()
 
+    def getPromedioMenorMateria(self):
+        menorPromedio = 0
+        for item in self.listaDeMaterias:
+            J = item.getPromedio
+            if menorPromedio > J:
+                menorPromedio = item.getPromedio
+        return menorPromedio
+
+    def getPromedioMayorMateria(self):
+        mayorPromedio = 0
+        for item in self.listaDeMaterias:
+            J = item.getPromedio
+            if mayorPromedio < J:
+                mayorPromedio = item.getPromedio
+        return mayorPromedio
 
 
     def getEdadActual(self):

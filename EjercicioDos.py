@@ -8,7 +8,7 @@ class Materias(object):
 
 
     def setNombreMateria(self, nombreDeMateriaAIngresar):
-        self.materia = nombreAIngresar
+        self.materia = nombreDeMateriaAIngresar
 
     def setNota(self, notaAIngresar):
         if (notaAIngresar > 10):
@@ -17,6 +17,11 @@ class Materias(object):
             return False
         self.listaDeNotas.append(notaAIngresar)
         return True
-    def getPromedio(self):
-        return sum(self.listaDeNotas) / len(self.listaDeNotas)
 
+    def getPromedio(self):
+        return (sum(self.listaDeNotas) / len(self.listaDeNotas))
+
+    def getMenorNota(self):
+        return min(self.listaDeNotas)
+    def getMayorNota(self):
+        return max(self.listaDeNotas)
