@@ -59,6 +59,5 @@ class Alumno(object):
                 mayorPromedio = item.getPromedio
         return mayorPromedio
 
-
     def getEdadActual(self):
         return (datetime.date.today() - self.fechaDeNacimiento)/365.25
