@@ -33,15 +33,15 @@ class Empleado(object):
         contador = 0
         contadorDias = 0
         for item in self.listaDeAsistencia:
-            if(mes == item.month):
+            if(mes != item.month or año != año):
+                return False
+            else:
                 if(self.listaDeDiasHabiles[item.weekday()] == True):
-                   contador += 1
+                    contador += 1
 
-                for i in range(1, monthrange(año, mes)+1):
+                for i in range(1, calendar.monthrange(año, mes)[1]+1):
                     fecha = datetime.date(año, mes, i).weekday()
-                if(self.listaDeDiasHabiles[fecha] == True):
-                    contadorDias += 1
+                    if(self.listaDeDiasHabiles[fecha] == True):
+                        contadorDias += 1
 
                 return contador/contadorDias
-            else:
-                return False
