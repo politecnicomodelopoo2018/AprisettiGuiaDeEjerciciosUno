@@ -1,4 +1,5 @@
 import datetime
+from calendar import monthrange
 
 class Empleado(object):
 
@@ -11,7 +12,7 @@ class Empleado(object):
         self.listaDeAsistencia = []
 
     def setNombre(self, nombreAIngresar):
-        self.nombre=nombreAIngresar.title()
+        self.nombre = nombreAIngresar.title()
 
     def setApellido(self, apellidoIngresado):
         self.apellido = apellidoIngresado.title()
@@ -28,20 +29,19 @@ class Empleado(object):
     def getDiasQueFue(self):
         return self.listaDeAsistencia
 
-    def getPorcetajeDeAsistencia(self, año, mes):
+    def getPorcetajeDeAsistenciaMes(self, año, mes):
         contador = 0
         contadorDias = 0
         for item in self.listaDeAsistencia:
-            if(self.listaDeDiasHabiles[item.weekday()] == True):
-                contador += 1
+            if(mes == item.month):
+                if(self.listaDeDiasHabiles[item.weekday()] == True):
+                   contador += 1
+
+                for i in range(1, monthrange(año, mes)+1):
+                    fecha = datetime.date(año, mes, i).weekday()
+                if(self.listaDeDiasHabiles[fecha] == True):
+                    contadorDias += 1
+
+                return contador/contadorDias
             else:
-                continue
-        for i in range(1, 31):
-            fecha = datetime.date(año, mes, i).weekday()
-            if(self.listaDeDiasHabiles[fecha] == True):
-                contadorDias += 1
-        print (contador)
-        print (contadorDias)
-        return contador/contadorDias
-
-
+                return False

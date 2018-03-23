@@ -9,9 +9,9 @@ pepe.setNombre("pepe")
 pepe.setApellido("pepe2")
 pepe.setFechaDeNacimiento(datetime.date(1982, 12, 26))
 
-Tatata = True
+'''continuar = True
 
-'''while(Tatata):
+while(continuar):
     año = int(input())
     mes = int(input())
     dia = int(input())
@@ -19,11 +19,11 @@ Tatata = True
     seguir = input()
 
     if(seguir == "no"):
-        Tatata = False
+        continuar = False
     else:
         continue'''
 
 for i in range(1, 30):
     pepe.setDiasqueFue(datetime.date(2000, 4, i))
 
-print(pepe.getPorcetajeDeAsistencia(2000, 4))
+print(pepe.getPorcetajeDeAsistenciaMes(2000, 4))
