@@ -9,8 +9,9 @@ class Equipo(Object):
         self.nombreEquipo = nombreEquipo
         self.barrioEquipo = barrioEquipo
 
-        self.listaDisponibilidadDia = []
+        self.listaDisponibilidadDia = [[False , False , False][False , False , False][False , False , False][False , False , False][False , False , False][False , False , False]]
         self.listaJugadores = []
+
 
     def setNombreEquipo(self, nombreAIngresar):
 
@@ -24,6 +25,7 @@ class Equipo(Object):
 
         self.listaDisponibilidadDia.append(dias)
 
+
     def organizarNumeros(self):
 
         for item in self.listaJugadores:
@@ -32,8 +34,5 @@ class Equipo(Object):
                     item.camisetaJugador()
 
     def coordinacion(self, dia, hora):
+         return self.listaDisponibilidadDia[[dia][hora]]
 
-        if(self.listaDisponibilidadDia[dia].listaHorario[hora]):
-            return True
-        else:
-            return False
